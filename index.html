@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Series Channel</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header {
+            background-color: #0066cc;
+            color: white;
+            padding: 15px 0;
+            width: 100%;
+        }
+
+        .logo img {
+            width: 150px;
+            margin: 10px 0;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px 0;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: black;
+        }
+
+        .video-title {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #333;
+        }
+
+        .video-note {
+            font-size: 16px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .video-links {
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .video-links a {
+            padding: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 8px;
+            background-color: #0066cc;
+            transition: background-color 0.3s, transform 0.3s;
+            flex: 1 1 calc(50% - 10px);
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .video-links a:hover {
+            background-color: #ff6600;
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 15px;
+            background-color: #0066cc;
+            color: white;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 20px;
+            }
+            .video-title {
+                font-size: 18px;
+            }
+            .video-note {
+                font-size: 14px;
+            }
+            .video-links a {
+                font-size: 14px;
+                padding: 10px;
+                flex: 1 1 calc(50% - 10px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 18px;
+            }
+            .video-title {
+                font-size: 16px;
+            }
+            .video-note {
+                font-size: 12px;
+            }
+            .video-links a {
+                font-size: 14px;
+                padding: 10px;
+                flex: 1 1 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <img src="https://i.suar.me/N2amV/l" alt="Free Series Logo">
+    </div>
+    <h1>Welcome to Free Series</h1>
+</header>
+
+<main>
+    <div class="video-container">
+        <video id="videoPlayer" controls autoplay>
+            <source src="https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkczko4a5t2zrtnqiia5a/index-v1-a1.m3u8" type="application/x-mpegURL">
+            <source src="https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkczko4a5t2zrtnqiia5a/iframes-v1-a1.m3u8" type="application/x-mpegURL">
+            Your browser does not support the video tag. Please use a different browser or update your current one.
+        </video>
+    </div>
+
+    <div class="video-title" id="videoTitle">مسلسل العبقري الحلقة 5</div>
+    <div class="video-note">ملاحظة: اذا لم يشتغل فيديو جرب مشغلات أخرى</div>
+
+    <div class="video-links">
+        <a href="#" onclick="changeVideo('https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkczko4a5t2zrtnqiia5a/index-v1-a1.m3u8', 'Video 1')">Video 1</a>
+        <a href="#" onclick="changeVideo('https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkczko4a5t2zrtnqiia5a/iframes-v1-a1.m3u8', 'Video 2')">Video 2</a>
+        <a href="#" onclick="changeVideo('https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkluko4a5t2z4d4vdm37a/index-v1-a1.m3u8', 'Video 3')">Video 3</a>
+        <a href="#" onclick="changeVideo('https://cdn-cached-vip2-qdh.cdnpls.online/hls/zmy5ltmy7gnnzmnho7iazwzyo735vfwnqu4errsvkluko4a5t2z4d4vdm37a/iframes-v1-a1.m3u8', 'Video 4')">Video 4</a>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2024 Free Series Channel. All rights reserved.</p>
+</footer>
+
+<script>
+    const videoPlayer = document.getElementById('videoPlayer');
+
+    function changeVideo(src, title) {
+        videoPlayer.src = src;
+        document.getElementById('videoTitle').innerText = title;
+        videoPlayer.play();
+    }
+
+    // تشغيل الفيديو عند تحميل الصفحة
+    window.onload = function() {
+        videoPlayer.play();
+    };
+</script>
+
+</body>
+</html>
